@@ -1,0 +1,154 @@
+[
+  {
+    "id": "apex-drift-ppo",
+    "title": "ApexDrift AI: Deep PPO Autonomous Racing",
+    "category": "Reinforcement Learning",
+    "framework": "PyTorch + Gymnasium",
+    "description": "High-speed autonomous racing agent trained with Proximal Policy Optimization inside a custom OpenAI Gymnasium environment. The agent masters drift control, LIDAR-based obstacle avoidance, and adaptive speed regulation across 12 procedurally generated tracks.",
+    "video_path": "videos/apex_drift_ppo.mp4",
+    "video_type": "local",
+    "huggingface_url": "https://huggingface.co/models/rl-zoo3/ppo-LunarLander-v2",
+    "hf_repo_type": "Model",
+    "metrics": [
+      {
+        "label": "Peak Reward",
+        "value": "+1,850"
+      },
+      {
+        "label": "Training Steps",
+        "value": "10M"
+      },
+      {
+        "label": "Inference Latency",
+        "value": "12 ms"
+      },
+      {
+        "label": "Algorithm",
+        "value": "PPO"
+      }
+    ],
+    "tags": [
+      "PPO",
+      "Autonomous Racing",
+      "LIDAR",
+      "Gymnasium",
+      "PyTorch"
+    ],
+    "github_url": "https://github.com/DLR-RM/rl-baselines3-zoo",
+    "created_at": "2026-11-01"
+  },
+  {
+    "id": "cyber-biped-sac",
+    "title": "CyberBiped: SAC Continuous Locomotion & Parkour",
+    "category": "Physics & Locomotion",
+    "framework": "MuJoCo + Stable-Baselines3",
+    "description": "3D humanoid ragdoll agent mastering dynamic bipedal gait, terrain obstacle vaulting, and automatic fall-recovery using Soft Actor-Critic with heavy domain randomization on mass and joint friction.",
+    "video_path": "videos/cyber_biped_sac.mp4",
+    "video_type": "local",
+    "huggingface_url": "https://huggingface.co/models/sb3/cyberbiped-sac-humanoid",
+    "hf_repo_type": "Model",
+    "metrics": [
+      {
+        "label": "Forward Velocity",
+        "value": "4.82 m/s"
+      },
+      {
+        "label": "Fall Recovery",
+        "value": "99.1%"
+      },
+      {
+        "label": "Torque Efficiency",
+        "value": "0.84"
+      },
+      {
+        "label": "Algorithm",
+        "value": "SAC (Entropy Auto-Tuned)"
+      }
+    ],
+    "tags": [
+      "MuJoCo",
+      "SAC",
+      "Locomotion",
+      "Humanoid",
+      "Physics Simulation"
+    ],
+    "github_url": "https://github.com/DLR-RM/stable-baselines3",
+    "created_at": "2026-10-18"
+  },
+  {
+    "id": "shadow-tactics-transformer",
+    "title": "ShadowTactics Bot: Multi-Agent Spatial Transformer",
+    "category": "Multi-Agent & RTS",
+    "framework": "Hugging Face Transformers + PyTorch",
+    "description": "Squad tactical combat AI utilizing spatial-temporal attention mechanisms to command units in real-time. Capable of synchronized flanking maneuvers, target priority evaluation, and dynamic cover utilization.",
+    "video_path": "videos/neural_fps_transformer.mp4",
+    "video_type": "local",
+    "huggingface_url": "https://huggingface.co/models/ml-games/shadowtactics-transformer-8b",
+    "hf_repo_type": "Model",
+    "metrics": [
+      {
+        "label": "Winrate vs Hard",
+        "value": "94.6%"
+      },
+      {
+        "label": "Decision Latency",
+        "value": "8.4 ms"
+      },
+      {
+        "label": "Attention Heads",
+        "value": "12 Heads"
+      },
+      {
+        "label": "Parameters",
+        "value": "35M Parameters"
+      }
+    ],
+    "tags": [
+      "Multi-Agent",
+      "Transformer",
+      "RTS",
+      "Decision AI",
+      "PyTorch"
+    ],
+    "github_url": "https://github.com/huggingface/transformers",
+    "created_at": "2026-10-22"
+  },
+  {
+    "id": "voxel-diffusion-3d",
+    "title": "VoxelWorld Diffusion: 3D Latent World Engine",
+    "category": "Generative 3D",
+    "framework": "Diffusers + Custom C++ Engine",
+    "description": "Generative diffusion model producing seamless, infinite 3D voxel biomes in real time. Responds dynamically to player exploration direction, biome prompts ('Bioluminescent Canyon'), and seed variations.",
+    "video_path": "videos/voxel_world_diffusion.mp4",
+    "video_type": "local",
+    "huggingface_url": "https://huggingface.co/spaces/ml-games/voxelworld-3d-diffusion",
+    "hf_repo_type": "Space",
+    "metrics": [
+      {
+        "label": "Inference Time",
+        "value": "16.2 ms"
+      },
+      {
+        "label": "Voxel Grid",
+        "value": "128x128x64"
+      },
+      {
+        "label": "VRAM Usage",
+        "value": "2.8 GB"
+      },
+      {
+        "label": "Architecture",
+        "value": "3D U-Net Latent"
+      }
+    ],
+    "tags": [
+      "Generative AI",
+      "Diffusion",
+      "Voxel",
+      "Procedural Generation",
+      "Diffusers"
+    ],
+    "github_url": "https://github.com/huggingface/diffusers",
+    "created_at": "2026-10-26"
+  }
+]
