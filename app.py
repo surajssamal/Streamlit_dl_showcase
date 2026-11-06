@@ -24,8 +24,7 @@ import streamlit as st
 # 1. Page Configuration
 # ─────────────────────────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="NeuralPlay // ML Showcase",
-    page_icon="🎮",
+    page_title="ML Showcase",
     layout="wide",
     initial_sidebar_state="expanded"
 )
