@@ -37,6 +37,7 @@ APP_DIR = Path(__file__).resolve().parent
 VIDEOS_DIR = APP_DIR / "videos"
 DATA_DIR = APP_DIR / "data"
 PROJECTS_FILE = DATA_DIR / "projects.json"
+WALLPAPER_FILE = APP_DIR / "wallpaper.jpg"
 
 VIDEOS_DIR.mkdir(parents=True, exist_ok=True)
 DATA_DIR.mkdir(parents=True, exist_ok=True)
@@ -163,12 +164,25 @@ def save_projects_data(projects: list[dict]) -> None:
 # ─────────────────────────────────────────────────────────────────────────────
 # 6. Styling & Design System
 # ─────────────────────────────────────────────────────────────────────────────
+def get_wallpaper_base64() -> str:
+    """Read and base64-encode the wallpaper image for background styling."""
+    if WALLPAPER_FILE.exists():
+        try:
+            with open(WALLPAPER_FILE, "rb") as f:
+                return base64.b64encode(f.read()).decode("utf-8")
+        except Exception:
+            return ""
+    return ""
+
+
+WALLPAPER_B64 = get_wallpaper_base64()
+
 CUSTOM_CSS = """
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap');
 
 :root {
   --bg-deep: #060911;
-  --bg-card: rgba(11, 16, 28, 0.85);
+  --bg-card: rgba(11, 16, 28, 0.82);
   --neon-cyan: #00f0ff;
   --neon-green: #00ffaa;
   --neon-purple: #d946ef;
@@ -187,7 +201,11 @@ html, body, [class*="css"] {
 }
 
 .stApp {
-  background-color: var(--bg-deep) !important;
+  background-color: var(--bg-deep);
+}
+
+[data-testid="stAppViewContainer"] {
+  background: transparent !important;
 }
 
 .main, .block-container {
@@ -198,7 +216,7 @@ html, body, [class*="css"] {
 
 #MainMenu { visibility: hidden; }
 footer { visibility: hidden; }
-header { background: transparent !important; }
+header, [data-testid="stHeader"] { background: transparent !important; }
 
 /* ── Header ── */
 .center-header {
@@ -473,7 +491,8 @@ header { background: transparent !important; }
 
 /* ── Sidebar Styling ── */
 [data-testid="stSidebar"] {
-  background-color: #070a14 !important;
+  background-color: rgba(7, 10, 20, 0.85) !important;
+  backdrop-filter: blur(14px) !important;
   border-right: 2px solid var(--neon-cyan) !important;
   box-shadow: 6px 0px 0px #000000 !important;
 }
@@ -489,7 +508,18 @@ header { background: transparent !important; }
   margin-bottom: 0.2rem !important;
 }
 """
-st.markdown(f"<style>{CUSTOM_CSS}</style>", unsafe_allow_html=True)
+
+WALLPAPER_CSS = ""
+if WALLPAPER_B64:
+    WALLPAPER_CSS = f"""
+.stApp {{
+  background: linear-gradient(rgba(6, 9, 17, 0.55), rgba(6, 9, 17, 0.55)),
+              url("data:image/jpeg;base64,{WALLPAPER_B64}") no-repeat center center fixed !important;
+  background-size: cover !important;
+}}
+"""
+
+st.markdown(f"<style>{CUSTOM_CSS}\n{WALLPAPER_CSS}</style>", unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 7. Session State Initialization
